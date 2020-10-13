@@ -1,0 +1,17 @@
+[Unit]
+Description=CeleryBeat instance for TG Bot
+After=network.target
+
+[Service]
+User=root
+Group=root
+Type=idle
+
+WorkingDirectory=/home/channelparser
+EnvironmentFile= /home/channelparser/bot.env
+ExecStart=/home/channelparser/venv/bin/celery -A main beat -l INFO
+#Restart=always
+
+
+[Install]
+WantedBy=multi-user.target
