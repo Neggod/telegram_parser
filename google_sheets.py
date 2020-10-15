@@ -77,7 +77,7 @@ def write_data(list_name: str, row_number: int, values: list):
         "valueInputOption": "USER_ENTERED",
         # Данные воспринимаются, как вводимые пользователем (считается значение формул)
         "data": [
-            {"range": f"{list_name}!A{row_number}:O{row_number}",
+            {"range": f"{list_name}!A{row_number}:O{row_number+1}",
              "majorDimension": "ROWS",  # Сначала заполнять строки, затем столбцы
              "values": values}
         ]
@@ -88,7 +88,7 @@ def write_data(list_name: str, row_number: int, values: list):
             "requests": [
                 {'updateBorders': {'range': {'sheetId': 123123123123,
                                              'startRowIndex': 1,
-                                             'endRowIndex': row_number,
+                                             'endRowIndex': row_number+1,
                                              'startColumnIndex': 1,
                                              'endColumnIndex': len(values)},
                                    'bottom': {
